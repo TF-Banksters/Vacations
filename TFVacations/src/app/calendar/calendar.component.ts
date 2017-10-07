@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarEvent } from "calendar-utils/dist/calendar-utils";
+import { addDays } from 'date-fns';
+import { colors } from '../colors';
 
 @Component({
   selector: 'app-tf-calendar',
@@ -7,7 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
-  constructor() { }
+
+  events: CalendarEvent[] = [
+    {
+      title: '',
+      color: colors.yellow,
+      start: new Date(),
+      end: addDays(new Date(), 1)
+    },
+    {
+      title: '',
+      color: colors.blue,
+      start: new Date(),
+      end: addDays(new Date(), 1)
+    }
+  ];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
