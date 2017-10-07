@@ -6,18 +6,24 @@ import { CalendarModule } from 'angular-calendar';
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UsersService } from './user-list/users.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarComponent
+    CalendarComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UsersService, HttpClient],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
